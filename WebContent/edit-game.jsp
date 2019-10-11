@@ -7,7 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Edit a game</title>
 </head>
-<body>
+<body bgcolor=green>
 <form action = "editGameServlet" method = "post">
 <table>
 <tr><td>Name: <input type="text" name = "name" value= "${gameToEdit.gameName}"></td></tr>

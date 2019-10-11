@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Edit a list</title>
 </head>
-<body>
+<body bgcolor=green>
 <form action = "editExistingListServlet" method="post">
 List Name: <input type = "text" name = "listName" value="${listToEdit.listName }"><br/>
 Gamer Name: <input type = "text" name = "gamerName" value="${listToEdit.gamer.gamerName}"><br/> 

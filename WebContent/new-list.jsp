@@ -7,7 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Create a new list</title>
 </head>
-<body>
+<body bgcolor=green>
 	<form action="createNewListServlet" method="post">
 		List Name:<input type="text" name="listName"><br /> 
 		Gamer Name: <input type="text" name="gamerName"><br /> 

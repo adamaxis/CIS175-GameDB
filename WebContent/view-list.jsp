@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Gamer lists</title>
 </head>
-<body>
+<body bgcolor=green>
 <form method = "post" action = "listNavigationServlet">
 <table>
 	<c:if test = "${requestScope.allLists != 'empty'}">

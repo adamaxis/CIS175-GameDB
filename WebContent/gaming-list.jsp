@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Game List</title>
 </head>
-<body>
+<body bgcolor=green>
 	<form method="post" action="navigationServlet">
 		<table>
 			<c:forEach items="${requestScope.allGames }" var="currentgame">
