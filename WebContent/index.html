@@ -3,18 +3,50 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert game info here</title>
+<script>
+	function doValidation() {
+		lblOb = document.getElementById("lblValidate");
+		lblOb.innerHTML = "";
+		var verify = true;
+        if(document.addGame.name.value == "" ) {
+           lblOb.innerHTML  += "* Please provide a game name.<br>";
+           document.addGame.name.focus() ;
+           verify = false;
+        }
+        if(document.addGame.genre.value == "" ) {
+            lblOb.innerHTML  += "* Please provide a genre.<br>";
+            document.addGame.genre.focus() ;
+            verify = false;
+         }
+        if(document.addGame.console.value == "" ) {
+            lblOb.innerHTML  += "* Please provide a console.<br>";
+            document.addGame.console.focus() ;
+            verify = false;
+         }
+        if(document.addGame.publisher.value == "") {
+            lblOb.innerHTML  += "* Please provide a publisher.<br>";
+            document.addGame.publisher.focus() ;
+            verify = false;
+         }
+        if(document.addGame.date.value == "") {
+            lblOb.innerHTML  += "* Please provide a valid date.<br>";
+            verify = false;
+        }
+        return verify;
+	}
+
+</script>
 </head>
 <body>
-<form action ="addGameServlet" method = "post">
+<form action ="addGameServlet" name="addGame" method = "post" onsubmit="return(doValidation());">
 Game Name: <input type = "text" name= "name">
 Genre: <input type = "text" name= "genre">
 Game Console: <input type = "text" name= "console">
 Publisher: <input type = "text" name= "publisher">
-<br>Release Date: <input type = "text" name= "month" placeholder="mm" size=2 maxlength=2>
-			<input type = "text" name = "day" placeholder="dd" size=2 maxlength=2>
-			<input type = "text" name = "year" placeholder ="yyyy" size=4 maxlength=4> 
+<br>Release Date<input type="date" name="date">
 <input type ="submit" value="Add Game">
 </form><br/>
+<label id="lblValidate"></label>
 <a href ="viewAllGamesServlet">View the complete game list</a><br/>
 <a href ="viewAllListsServlet">View all game lists</a><br/>
 <a href ="addGamesForListServlet">Create a new game list</a>

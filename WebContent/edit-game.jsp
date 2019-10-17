@@ -14,11 +14,7 @@
 <tr><td>Genre: <input type="text" name = "genre" value= "${gameToEdit.genre }"></td></tr>
 <tr><td>Console: <input type="text" name ="console" value= "${gameToEdit.gameConsole }"></td></tr>
 <tr><td>Publisher: <input type="text" name = "publisher" value ="${gameToEdit.publisher }"></td></tr>
-
-<c:set var="date" value="${fn:split(gameToEdit.releaseDate, '-')}" />
-<tr><td>Release Date: <input type="text" name = "month" value="${date[1]}" placeholder="mm" size=2 maxlength=2>
-			<input type="text" name = "day" value = "${date[2]}" placeholder="dd" size=2 maxlength=2>
-			<input type="text" name = "year" value = "${date[0]}" placeholder="yyyy" size=4 maxlength=4></td></tr>
+<tr><td>Release Date: <input type="date" name = "date" value="${gameToEdit.releaseDate}">
 </table>
 <input type = "hidden" name = "id" value = "${gameToEdit.id }"	>
 <input type = "submit" value = "Save Edited Game"><input type = "button" value="Abandon Edit" onclick='window.location.assign("viewAllGamesServlet");'><br>

@@ -7,9 +7,29 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Edit a list</title>
+<script>
+	function doValidation() {
+		lblOb = document.getElementById("lblValidate");
+		lblOb.innerHTML = "";
+		var verify = true;
+        if(document.editList.listName.value == "" ) {
+           lblOb.innerHTML  += "* Please provide a list name.<br>";
+           document.editList.listName.focus() ;
+           verify = false;
+        }
+        if(document.editList.gamerName.value == "" ) {
+            lblOb.innerHTML  += "* Please provide a gamer name.<br>";
+            document.editList.gamerName.focus() ;
+            verify = false;
+         }
+        return verify;
+	}
+
+</script>
+
 </head>
 <body>
-<form action = "editExistingListServlet" method="post">
+<form action = "editExistingListServlet" name="editList" method="post" onsubmit="return(doValidation());">
 List Name: <input type = "text" name = "listName" value="${listToEdit.listName }"><br/>
 Gamer Name: <input type = "text" name = "gamerName" value="${listToEdit.gamer.gamerName}"><br/> 
 <input type = "hidden" name = "id" value = "${listToEdit.id }">
@@ -31,6 +51,7 @@ Remaining Games:<br/>
 <br/>
 <input type = "submit" value="Finish Edit"><input type = "button" value="Abandon Edit" onclick='window.location.assign("viewAllListsServlet");'>
 </form>
+<label id="lblValidate"></label>
 <a href = "index.html"> Add a new game instead</a>
 </body>
 </html>
