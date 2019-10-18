@@ -3,6 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert game info here</title>
+<script src="moment.js"></script>
 <script>
 	function doValidation() {
 		lblOb = document.getElementById("lblValidate");
@@ -28,13 +29,15 @@
             document.addGame.publisher.focus() ;
             verify = false;
          }
-        if(document.addGame.date.value == "") {
-            lblOb.innerHTML  += "* Please provide a valid date.<br>";
+        var dateString = moment(document.addGame.date.value);
+        if(!dateString.isValid() || document.addGame.date.value.length > 10) {
+            lblOb.innerHTML  += "* Please provide a valid date[mm-dd-yyyy].<br>";
             verify = false;
+        } else if(verify == true) {
+			document.addGame.date.value = dateString.format('YYYY-MM-DD');
         }
         return verify;
 	}
-
 </script>
 </head>
 <body>
